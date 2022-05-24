@@ -1,4 +1,4 @@
-"""Component 4 - Quiz (main) GUI
+"""Component 5 - Quiz (main) GUI
 creating the wire frame/designing how the quiz GUI will look
 Wen-Qi Toh
 25/5/22"""

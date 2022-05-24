@@ -1,4 +1,4 @@
-"""Component 6 - quiz questions v1
+"""Component 3 - quiz questions v1
 come up with 10 quiz questions in a list
 make function to .pop quiz questions in random order
 Wen-Qi Toh

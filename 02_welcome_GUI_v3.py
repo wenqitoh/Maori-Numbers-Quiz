@@ -33,9 +33,10 @@ class Welcome:
                                         "Please enter a number (below or equal "
                                         "to 10) into the box\nbelow of how "
                                         "many questions you would like to "
-                                        "answer.\nIf you don't know how to "
-                                        "play, click 'HELP' button on the\n"
-                                        "main quiz screen after pressing 'NEXT'.",
+                                        "answer, \nthen click 'CHECK'."
+                                        " If you don't know how to "
+                                        "play, click\n'HELP' button on the "
+                                        "main quiz screen\nafter pressing 'NEXT'.",
                                         font="Arial 12", bg=bg_colour,
                                         justify=CENTER, padx=10, pady=10)
         self.welcome_info_label.grid(row=1, columnspan=4)

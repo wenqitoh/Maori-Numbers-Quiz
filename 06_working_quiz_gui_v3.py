@@ -1,8 +1,9 @@
-"""Component 6 - working quiz GUI v2
-adding C3 quiz questions to C5 quiz GUI, to form a working quiz, with 'next'
-and 'check' buttons
-Make 'next' & 'check' functions to apply to the respective buttons, allowing
-user to run the quiz.
+"""Component 6 - working quiz GUI v3
+fixing the things stated in Component Development in ppt:
+-Make check_button disabled after answer has been checked, to prevent system crashing
+-Make question number bigger for better readability, & make width size smaller)
+-Found an error at the start of quiz, user is allowed to enter something other
+than ‘Z’ and next button is enabled.
 Wen-Qi Toh
 29/5/22"""
 
@@ -26,10 +27,10 @@ class Quiz:
         self.quiz_heading.grid(row=0, columnspan=4)
 
         # box for questions to be displayed (label, row 1)
-        self.quiz_questions = Label(self.quiz_frame, text="Enter 'Z' to begin",
-                                    justify=CENTER, width=20, bg="white",
-                                    pady=10, padx=10)
-        self.quiz_questions.grid(row=1)
+        self.quiz_questions = Label(self.quiz_frame, font="arial 16 bold",
+                                    text="", justify=CENTER, width=3,
+                                    bg="white", pady=10, padx=10)
+        self.quiz_questions.grid(row=1, columnspan=4)
 
         # quiz text (label, row 2)
         self.quiz_text = Label(self.quiz_frame, text="Type your answer below,"
@@ -46,7 +47,8 @@ class Quiz:
 
         # incorrect/correct quiz label (label, row 4)
         self.quiz_label = Label(self.quiz_frame, font="Arial 12 bold",
-                                text="Quiz label here",
+                                text="Enter any letter then click 'Check' "
+                                     "to begin.",
                                 bg=background, pady=5, padx=5, justify=CENTER)
         self.quiz_label.grid(row=4, columnspan=3)
 
@@ -99,13 +101,10 @@ class Quiz:
         # turn question entry into a variable
         user_ans = self.user_ans_entry.get().capitalize()
 
-        if user_ans == "Z":   # to start the quiz
-            print("Let's get started!")
-            self.quiz_label.config(fg="green", text="click 'Next' to begin")
-            self.next_button.config(state="normal")
-        elif user_ans.isalpha():
+        if user_ans.isalpha():
             print("answer is a word")
             self.quiz_label.config(fg="green", text="click 'Next' to continue")
+            self.check_button.config(state="disabled")
             self.next_button.config(state="normal")
             if user_ans == number[1]:
                 print("correct!")
@@ -132,6 +131,7 @@ class Quiz:
         number = random.choice(ans_list)
         self.quiz_questions.config(text=number[0])  # displays number in the quiz question box, for user to answer
         self.user_ans_entry.delete(0, END)  # clears the user answer entry box
+        self.check_button.config(state="normal")
         self.next_button.config(state="disabled")
 
     # function to quit Quiz GUI

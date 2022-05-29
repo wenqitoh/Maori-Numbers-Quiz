@@ -75,15 +75,24 @@ class Welcome:
         # turn question entry into a variable
         error_msg = "Error! Number must be between 1-10!"
         error_fg = "#D04747"
-        num_of_questions = int(self.question_num_entry.get())
+        num_of_questions = self.question_num_entry.get()
 
-        # check that user entered number is between boundary values
-        if 1 <= num_of_questions <= 10:
-            self.error_msg_lbl.configure(fg=bg_colour)
-            self.next_button.config(state="normal")
-            return num_of_questions
-        else:
+        try:
+            num_of_questions = int(num_of_questions)
+
+            # check that user entered number is between boundary values
+            if 1 <= num_of_questions <= 10:
+                self.error_msg_lbl.configure(fg=bg_colour)
+                self.next_button.config(state="normal")
+                return num_of_questions
+
+            else:
+                self.error_msg_lbl.configure(text=error_msg, fg=error_fg)
+                self.next_button.config(state="disabled")
+
+        except ValueError:
             self.error_msg_lbl.configure(text=error_msg, fg=error_fg)
+            self.next_button.config(state="disabled")
 
     def quiz(self):
         print("You clicked 'next' for the quiz GUI")

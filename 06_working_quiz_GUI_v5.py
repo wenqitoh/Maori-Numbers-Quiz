@@ -1,11 +1,7 @@
-"""Component 6 - working quiz GUI v4
-use a try/except loop in check_fn so that there are no ValueErrors (ie. if user
-enters '@' or '#')
-stopping quiz questions when the count (variable) is the same as num of quiz
-questions user wanted
-counting number of right/wrong answers to use later in results GUI
+"""Component 6 - working quiz GUI v5
+updated this to change the lists & code a bit, for use in 09_results_GUI_v3
 Wen-Qi Toh
-30/5/22"""
+2/6/22"""
 
 import random
 from tkinter import *
@@ -114,12 +110,12 @@ class Quiz:
                     if user_ans == number[1]:
                         print("correct!")
                         self.quiz_label.config(fg="green", text="Correct!")
-                        user_ans_list.append(user_ans)
+                        user_ans_list.append(f"{number[0]} in Maori is {user_ans}")     # for outputting later in Results GUI
                         right.append(user_ans)
                     else:   # user entered a word but incorrect answer
                         print("wrong answer")
                         self.quiz_label.config(fg="red", text="Incorrect :(")
-                        user_ans_list.append(user_ans)
+                        user_ans_list.append(f"{number[0]} in Maori is {user_ans}")     # for outputting later in Results GUI
                         wrong.append(user_ans)
                 else:   # user didn't enter answer using letters
                     print(error_msg)
@@ -130,10 +126,9 @@ class Quiz:
                 print("removed", number)
                 print(ans_list)
                 print("Number of questions =", num_of_questions)
-                count += 1
-                print("count = ", count)
                 print("right = ", len(right))
                 print("wrong = ", len(wrong))
+                print("user ans list: ", user_ans_list)
 
                 if len(right) + len(wrong) == num_of_questions:   # stop quiz if number of answered = number of
                     self.check_button.config(state="disabled")    # questions specified
@@ -162,7 +157,6 @@ class Quiz:
     def quit(self):
         self.quiz_frame.destroy()
 
-
 # variables and lists
 ans_list = [[1, "Tahi"], [2, "Rua"], [3, "Toru"], [4, "Wha"], [5, "Rima"],
             [6, "Onu"], [7, "Whitu"], [8, "Waru"], [9, "Iwa"], [10, "Tekau"]]
@@ -170,7 +164,7 @@ user_ans_list = []
 right = []
 wrong = []
 pie = False
-num_of_questions = 7
+num_of_questions = 4
 
 # main routine
 if __name__ == "__main__":

@@ -31,11 +31,10 @@ class Quiz:
         self.quiz_heading_label.grid(row=0)
 
         # results button (row 1)
-        self.results_quiz_button = Button(self.quiz_frame, text="Results",
-                                          font="arial 14", padx=10, pady=10,
-                                          command=lambda:
-                                          self.results(user_ans_list))
-        self.results_quiz_button.grid(row=1)
+        self.results_button = Button(self.quiz_frame, text="Results",
+                                     font="arial 14", padx=10, pady=10,
+                                     command=lambda: self.results(user_ans_list))
+        self.results_button.grid(row=1)
 
     def results(self, data):
         Results(self, data)
@@ -47,7 +46,7 @@ class Results:
         background = "#AED49F"  # light green
 
         # disable results button
-        partner.results_quiz_button.config(state=DISABLED)
+        partner.results_button.config(state=DISABLED)
 
         # set up child window (ie results box)
         self.results_box = Toplevel()
@@ -103,7 +102,7 @@ class Results:
 
     def close_results(self, partner):
         # put results button back to normal...
-        partner.results_quiz_button.config(state=NORMAL)
+        partner.results_button.config(state=NORMAL)
         self.results_box.destroy()
 
     def output_q_a(self):

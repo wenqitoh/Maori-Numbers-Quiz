@@ -229,7 +229,8 @@ class Quiz:
                                                 "'Results' button\nto see how"
                                                 " well you did.", fg="blue")
             except ValueError:
-                print(error_msg)
+                self.quiz_label.config(text=error_msg, fg=error_fg)
+                self.user_ans_entry.delete(0, END)
         else:
             self.next_button.config(state="normal")
 
@@ -374,7 +375,6 @@ class Results:
         for item in user_ans_list:
             to_separate += f"{item}\n"
         self.user_q_a.config(text=to_separate)
-        print(to_separate)
 
     def export(self, data):
         Export(self, data)
@@ -382,7 +382,6 @@ class Results:
 
 class Export:
     def __init__(self, partner, data):
-        print("data=", data)   # for testing purposes
         bg_4 = "#E58C52"  # orange
 
         # disable export button
@@ -451,7 +450,6 @@ class Export:
         valid_char = "[A-Za-z0-9_]"     # letters, numbers or underscores
         has_error = "no"
         filename = self.filename_entry.get()
-        print(filename)
 
         for letter in filename:
             # if the letter is valid, goes back and checks the next...

@@ -1,4 +1,4 @@
-"""Component 3 - quiz questions v4
+"""Component 3 - quiz questions v4, USED FOR TRIALLING!!
 ask user the question, get their input, say whether it's correct/incorrect.
 only output as many questions as num_of_questions
 

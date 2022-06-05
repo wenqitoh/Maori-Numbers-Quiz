@@ -1,4 +1,4 @@
-"""Component 11 - assembled outcome v2
+"""Component 10 - assembled outcome v2
 adding C2 Welcome GUI to assembled outcome v1
 change main window to Welcome()
 Wen-Qi Toh

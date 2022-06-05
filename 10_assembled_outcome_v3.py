@@ -1,4 +1,4 @@
-"""Component 11 - assembled outcome v3
+"""Component 10 - assembled outcome v3
 adding C8 Results GUI to assembled outcome v2
 removing unnecessary code from testing eg. print statements
 change bg colour of Results GUI

@@ -1,4 +1,4 @@
-"""Component 11 - assembled outcome v5
+"""Component 10 - assembled outcome v5 final version
 making my own minor adjustments (aesthetics)
 improving program after receiving user feedback
 Edit code to fit PEP8 standards
@@ -24,23 +24,24 @@ class Welcome:
 
         # Welcome GUI Heading (row 0)
         self.welcome_heading_label = Label(self.welcome_frame,
-                                           text="Welcome to the Maori Numbers Quiz!",
+                                           text="Welcome to the Maori Numbers "
+                                                "Quiz!", justify=CENTER,
                                            font=("arial", "16", "bold"),
-                                           bg=bg_colour, padx=10, pady=10,
-                                           justify=CENTER)
+                                           bg=bg_colour, padx=10, pady=10)
         self.welcome_heading_label.grid(row=0, columnspan=4)
 
         # Welcome information (row 1)
-        self.welcome_info_label = Label(self.welcome_frame, text="TO BEGIN THE QUIZ:\n"
-                                        "Please enter a number (below or equal "
+        self.welcome_info_label = Label(self.welcome_frame,
+                                        text="TO BEGIN THE QUIZ:\n Please "
+                                        "enter a number (below or equal "
                                         "to 10) into the box\nbelow of how "
                                         "many questions you would like to "
                                         "answer, \nthen click 'CHECK'."
                                         " If you don't know how to "
                                         "play, click\n'HELP' button on the "
-                                        "main quiz screen\nafter pressing 'NEXT'.",
-                                        font="Arial 12", bg=bg_colour,
-                                        justify=CENTER, padx=10, pady=10)
+                                        "main quiz screen\nafter pressing "
+                                        "'NEXT'.", font="Arial 12", padx=10,
+                                        pady=10, bg=bg_colour, justify=CENTER)
         self.welcome_info_label.grid(row=1, columnspan=4)
 
         # num of question indication label (row 2)
@@ -50,8 +51,8 @@ class Welcome:
                                       "below...", bg=bg_colour, justify=CENTER)
         self.question_num_lbl.grid(row=2, columnspan=4)
         # User num of questions entry box (row 3)
-        self.question_num_entry = Entry(self.welcome_frame,
-                                        font="Arial 12", width=5, justify=CENTER)
+        self.question_num_entry = Entry(self.welcome_frame,justify=CENTER,
+                                        font="Arial 12", width=5)
         self.question_num_entry.grid(row=3, columnspan=4)
 
         # blank label for error messages
@@ -59,7 +60,7 @@ class Welcome:
                                    bg=bg_colour, pady=10, padx=10)
         self.error_msg_lbl.grid(row=4, columnspan=4)
 
-        # 'check' button (row 5, column 1) to check that num of questions is within boundary
+        # 'check' button (row 5, column 1)check num of q's is within boundary
         self.check_button = Button(self.welcome_frame, text="CHECK",
                                    font="arial 14", padx=10, pady=10,
                                    command=self.int_check)

@@ -1,4 +1,4 @@
-"""Component 11 - assembled outcome v1
+"""Component 10 - assembled outcome v1
 using C6 working_quiz_gui_v5, adding 04 help_GUI_v5, for help button
 add help text/instructions
 Wen-Qi Toh
